@@ -3,21 +3,15 @@
 #
 # Copyright:   (c) David Trillo Montero 2014 - Manejandodatos.es
 #-------------------------------------------------------------------------------
-import time, cookielib, urllib2, difflib
-from cookielib import CookieJar
-from urllib2 import urlopen
-
-cj = CookieJar()
-opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
-opener.addheaders = [('User-agent', 'Mozilla/5.0')]
+import time, urllib2
 
 def gethtml(url):
     try:
-        return opener.open (url).read()
+        req = urllib2.Request(url)
+        return urllib2.urlopen(req).read()
     except Exception, e:
-        print str(e)
-        time.sleep(5)
-    return ''
+        time.sleep(2)
+        return ''
 
 url = 'http://www.manejandodatos.es'
 print gethtml(url)
