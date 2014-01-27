@@ -5,7 +5,7 @@ import adodbapi
 nl = "\n"
 debug = True
 
-class MSAcessConector():
+class MSAccessConnector():
     """ Clase para trabajar con bases de datos Microsoft Access en Python usando "adodbapi"    """
     def __init__(self, fichero_MDB):
         """ Inicializa OBJETO MSAccess """
